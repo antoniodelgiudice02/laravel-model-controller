@@ -13,22 +13,27 @@
   <body>
     <h1>Movies</h1>
     <div class="container">
-      @forelse($movies as $movie)
-        <div class="row">
-          <div class="col-3">
+      <div class="row g-5">
+        @forelse($movies as $movie)
+          <div class="col-6">
             <div class="card">
-              <div class="card-head">
+              <div class="card-header">
                 <h2>{{ $movie->title }}</h2>
               </div>
               <div class="card-body">
+
+                <p>Titolo originale: {{ $movie->original_title }}</p>
+                <p>Nazionalità: {{ $movie->nationality }}</p>
+                <p>Data d'uscita: {{ $movie->date }}</p>
+                <p>Voto: {{ $movie->vote }}</p>
                 
               </div>
             </div>
           </div>
-        </div>
-      @empty
-        <span>no movies</span>
-      @endforelse
+        @empty
+          <span>no movies</span>
+        @endforelse
+      </div>
     </div>
   </body>
 
